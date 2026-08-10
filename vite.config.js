@@ -53,7 +53,7 @@ export default defineConfig({
     },
 
     target: 'es2020',
-    minify: 'esbuild',
+    minify: 'oxc',
     sourcemap: true,
   },
 
