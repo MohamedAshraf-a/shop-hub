@@ -1,0 +1,650 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   🎨 1. نظام الألوان - Luxury Minimal
+   ============================================ */
+@theme {
+  /* ===== المسافات ===== */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+
+  /* ===== Light Mode Colors ===== */
+  --color-background: #fafaf9;
+  --color-foreground: #18181b;
+  --color-card: #ffffff;
+  --color-card-foreground: #18181b;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #18181b;
+  --color-primary: #18181b;
+  --color-primary-foreground: #fafafa;
+  --color-secondary: #f5f5f4;
+  --color-secondary-foreground: #18181b;
+  --color-muted: #f5f5f4;
+  --color-muted-foreground: #71717a;
+  --color-accent: #d4af37;
+  --color-accent-foreground: #18181b;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #fafafa;
+  --color-border: #e4e4e7;
+  --color-input: #f5f5f4;
+  --color-ring: #18181b;
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+
+  /* ===== Gold Accent ===== */
+  --color-gold: #d4af37;
+  --color-gold-hover: #e6c35c;
+  --color-gold-light: #f5e6c8;
+  --color-gold-dark: #b8962e;
+
+  /* ===== Shadows ===== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 16px 60px rgba(0, 0, 0, 0.1);
+  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* ============================================
+   🌙 2. Dark Mode
+   ============================================ */
+@layer base {
+  :root {
+    --color-background: #fafaf9;
+    --color-foreground: #18181b;
+    --color-card: #ffffff;
+    --color-card-foreground: #18181b;
+    --color-popover: #ffffff;
+    --color-popover-foreground: #18181b;
+    --color-primary: #18181b;
+    --color-primary-foreground: #fafafa;
+    --color-secondary: #f5f5f4;
+    --color-secondary-foreground: #18181b;
+    --color-muted: #f5f5f4;
+    --color-muted-foreground: #71717a;
+    --color-accent: #d4af37;
+    --color-accent-foreground: #18181b;
+    --color-destructive: #dc2626;
+    --color-destructive-foreground: #fafafa;
+    --color-border: #e4e4e7;
+    --color-input: #f5f5f4;
+    --color-ring: #18181b;
+  }
+
+  .dark {
+    --color-background: #09090b;
+    --color-foreground: #fafafa;
+    --color-card: #18181b;
+    --color-card-foreground: #fafafa;
+    --color-popover: #18181b;
+    --color-popover-foreground: #fafafa;
+    --color-primary: #fafafa;
+    --color-primary-foreground: #09090b;
+    --color-secondary: #27272a;
+    --color-secondary-foreground: #fafafa;
+    --color-muted: #27272a;
+    --color-muted-foreground: #a1a1aa;
+    --color-accent: #d4af37;
+    --color-accent-foreground: #fafafa;
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #fafafa;
+    --color-border: #3f3f46;
+    --color-input: #27272a;
+    --color-ring: #fafafa;
+  }
+}
+
+/* ============================================
+   🧩 3. الأنماط الأساسية
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter Variable', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background);
+}
+
+/* ============================================
+   📦 4. Container - Full Width
+   ============================================ */
+.container-custom {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 480px) {
+  .container-custom { padding: 0 20px; }
+}
+@media (min-width: 640px) {
+  .container-custom { padding: 0 24px; }
+}
+@media (min-width: 768px) {
+  .container-custom { padding: 0 32px; }
+}
+@media (min-width: 1024px) {
+  .container-custom { padding: 0 40px; }
+}
+@media (min-width: 1280px) {
+  .container-custom { padding: 0 48px; }
+}
+
+/* ============================================
+   📝 5. Typography
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-foreground);
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -0.02em; }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
+p { font-size: 1rem; line-height: 1.7; color: var(--color-muted-foreground); }
+
+/* ============================================
+   🎨 6. Gradient Text - Gold فقط
+   ============================================ */
+.text-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #e6c35c 50%, #b8962e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-hero {
+  background: linear-gradient(135deg, #18181b 0%, #d4af37 50%, #18181b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.dark .text-gradient-hero {
+  background: linear-gradient(135deg, #fafafa 0%, #d4af37 50%, #fafafa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================
+   🎯 7. Buttons - Luxury Minimal
+   ============================================ */
+.btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 48px;
+  min-width: 120px;
+  text-decoration: none;
+  font-family: 'Inter Variable', system-ui, sans-serif;
+}
+
+.btn-primary {
+  composes: btn-base;
+  color: #fafafa;
+  background: #18181b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background: #27272a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+}
+
+.btn-secondary {
+  composes: btn-base;
+  color: var(--color-foreground);
+  background: var(--color-card);
+  border: 1.5px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.btn-gold {
+  composes: btn-base;
+  color: #18181b;
+  background: #d4af37;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-gold:hover {
+  background: #e6c35c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+}
+
+.btn-gold:active {
+  transform: scale(0.96);
+}
+
+.btn-outline-gold {
+  composes: btn-base;
+  color: #d4af37;
+  background: transparent;
+  border: 1.5px solid #d4af37;
+}
+
+.btn-outline-gold:hover {
+  background: #d4af37;
+  color: #18181b;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   🃏 8. Cards - Luxury Minimal
+   ============================================ */
+.card-premium {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #d4af37;
+}
+
+.card-glass {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glass:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   🃏 9. Product Cards
+   ============================================ */
+.product-card-enhanced {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card-enhanced:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: #d4af37;
+}
+
+.product-card-enhanced .card-content {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+.product-card-enhanced .card-footer {
+  padding: 0 20px 20px 20px;
+  margin-top: auto;
+}
+
+.product-card-enhanced img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card-enhanced:hover img {
+  transform: scale(1.03);
+}
+
+/* ============================================
+   🏷️ 10. Badges
+   ============================================ */
+.badge-gold {
+  background: #d4af37;
+  color: #18181b;
+  padding: 2px 12px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-dark {
+  background: #18181b;
+  color: #fafafa;
+  padding: 2px 12px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   ✨ 11. Animations
+   ============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, var(--color-muted) 25%, var(--color-card) 50%, var(--color-muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ============================================
+   📊 12. Stats
+   ============================================ */
+.stat-number {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-foreground);
+}
+
+.stat-number.gold {
+  color: #d4af37;
+}
+
+/* ============================================
+   📱 13. Responsive
+   ============================================ */
+@media (max-width: 480px) {
+  .container-custom { padding: 0 12px; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.125rem; }
+  
+  .btn-base, .btn-primary, .btn-secondary, .btn-gold, .btn-outline-gold {
+    padding: 12px 18px;
+    font-size: 0.8125rem;
+    min-height: 44px;
+    min-width: 100%;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card-premium { padding: 16px; }
+  .product-card-enhanced .card-content { padding: 12px 16px; }
+  .product-card-enhanced .card-footer { padding: 0 16px 16px 16px; }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .container-custom { padding: 0 16px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .container-custom { padding: 0 24px; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .container-custom { padding: 0 40px; }
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.25rem; }
+}
+
+/* ============================================
+   🧹 14. Base Layer
+   ============================================ */
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  html { font-family: 'Inter Variable', system-ui, sans-serif; }
+  .dark { color-scheme: dark; }
+  
+  ::selection {
+    background: #d4af37;
+    color: #18181b;
+  }
+  
+  *:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   🖱️ 15. Scrollbar
+   ============================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #e6c35c; }
+
+/* ============================================
+   🎯 16. Utilities
+   ============================================ */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: #d4af37;
+  border-radius: 9999px;
+  margin: 8px auto 20px;
+}
+
+.section-spacing {
+  padding: clamp(32px, 6vw, 64px) 0;
+}
+
+.gold-text {
+  color: #d4af37;
+}
+
+.gold-border {
+  border-color: #d4af37;
+}
+
+.gold-bg {
+  background: #d4af37;
+}
+
+.gold-bg-light {
+  background: #f5e6c8;
+}
+
+.dark .gold-bg-light {
+  background: #2a2418;
+}
+
+/* ============================================
+   🎯 17. Hero Section
+   ============================================ */
+.hero-gradient {
+  background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(0, 0, 0, 0.03) 0%, transparent 60%);
+  padding: clamp(40px, 8vw, 80px) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .hero-gradient {
+  background: radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+}
+
+/* ============================================
+   🎯 18. Touch Targets
+   ============================================ */
+@media (max-width: 640px) {
+  button, a, [role="button"], .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  /* باقي الخصائص ... */
+}
+/* توسيط كل المحتوى */
+.page-container {
+  min-height: calc(100vh - 80px); /* اعدل حسب ارتفاع الناف بار */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.5rem;
+}
+
+.page-container > * {
+  width: 100%;
+  max-width: 1280px; /* نفس max-w-7xl */
+  margin: 0 auto;
+}
+
+/* لتوسيط الصفحات الصغيرة مثل Login */
+.page-center {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* مثال: صفحة المنتجات */
+.products-page {
+  min-height: calc(100vh - 80px);
+  padding: 2rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* تنسيق عام */
+@media (max-width: 640px) {
+  .page-container,
+  .page-center,
+  .products-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
+}
